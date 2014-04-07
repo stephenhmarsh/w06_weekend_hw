@@ -6,4 +6,8 @@ class Person < ActiveRecord::Base
 		return "#{self.first_name} #{self.last_name}"
 	end
 
+	def birthday
+		return "#{self.birthdate}"
+	end
+
 end

@@ -16,9 +16,18 @@ describe Person do
 # #name
 # should return a string that is the object's full name
 
-	describe 'name' do 
+	describe '#name' do 
 		it "should return a user's full name" do 
 			expect(@test_person.name).to eq("Stephen Marsh")
+		end
+	end
+
+# #birthday
+# should return a string that is the object's birthday
+
+	describe '#birthday' do
+		it "should return a string that is the object's birthday" do
+			expect(@test_person.birthday).to eq("1986-08-12")
 		end
 	end
 end
