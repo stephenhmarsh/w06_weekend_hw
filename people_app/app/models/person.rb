@@ -11,11 +11,10 @@ class Person < ActiveRecord::Base
 	end
 
 	def have_a_drink
+		#date math
 		now = Date.today.to_time
 		bday = self.birthdate.to_time
-
 		age = now.year - bday.year
-
 		if bday.month > now.month
 			age -= 1
 		elsif bday.month >= now.month && bday.day > now.day
@@ -24,7 +23,11 @@ class Person < ActiveRecord::Base
 
 		if age >= 21 
 			self.drinks += 1
+		else
+			return "Wait a few years"
 		end
+
+
 	end
 
 end

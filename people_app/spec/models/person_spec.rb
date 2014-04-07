@@ -44,6 +44,9 @@ describe '#have_a_drink' do
 			expect(@test_minor.drinks).to eq(0)
 			expect(@test_person.drinks).to eq(1)
 		end
+		it "if they are under 21 then the string 'Wait a few years' is returned" do
+			expect(@test_minor.have_a_drink).to eq("Wait a few years")
+		end
 	end
 
 
