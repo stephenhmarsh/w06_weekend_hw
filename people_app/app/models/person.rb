@@ -22,7 +22,11 @@ class Person < ActiveRecord::Base
 		end
 
 		if age >= 21 
-			self.drinks += 1
+			if self.drinks < 3
+				self.drinks += 1
+			else 
+				return "Go home you're drunk"
+			end
 		else
 			return "Wait a few years"
 		end

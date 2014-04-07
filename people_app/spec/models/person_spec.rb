@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Person do
 
-	before(:all) do
+	before(:each) do
 		@test_person = Person.create(first_name: "Stephen", last_name: "Marsh", birthdate: "1986-08-12", drinks: 0, img_url: "none", license: true)
 		@test_minor = Person.create(first_name: "Bob", last_name: "Bobson", birthdate: "2012-08-12", drinks: 0, img_url: "none", license: true)
 	end
@@ -46,6 +46,13 @@ describe '#have_a_drink' do
 		end
 		it "if they are under 21 then the string 'Wait a few years' is returned" do
 			expect(@test_minor.have_a_drink).to eq("Wait a few years")
+		end
+		it "If they can drink, they are not allowed to have more than three drinks otherwise the string 'Go home you're drunk'" do
+			@test_person.have_a_drink #1
+			@test_person.have_a_drink #2
+			@test_person.have_a_drink #3
+			expect(@test_person.drinks).to eq(3)
+			expect(@test_person.have_a_drink).to eq("Go home you're drunk")
 		end
 	end
 
