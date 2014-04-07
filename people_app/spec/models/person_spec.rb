@@ -81,8 +81,24 @@ describe "#drive_a_car" do
 		@test_person.drinks = 3
 		expect(@test_person.drive_a_car).to eq("Looks like a cab for you tonight")
 	end
-		
 end
 
+# #sober_up
+# if they have any drinks, it decreases it by 1
+# if they have no drinks, nothing happens
+
+describe "#sober_up" do
+	it "if they have any drinks, it decreases it by 1" do
+		@test_person.drinks = 2
+		@test_person.sober_up
+		expect(@test_person.drinks).to eq(1)
+		@test_person.sober_up
+		expect(@test_person.drinks).to eq(0)
+	end
+	it "if they have no drinks, nothing happens" do
+		@test_person.sober_up
+		expect(@test_person.drinks).to eq(0)
+	end
+end
 
 end

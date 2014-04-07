@@ -54,7 +54,13 @@ class Person < ActiveRecord::Base
 		elsif age >= 18 && self.license == false
 			return "Sorry, no license, bro."
 		end
+	end
 
+	def sober_up
+		if self.drinks > 0
+			self.drinks -= 1
+			self.save
+		end
 	end
 
 
