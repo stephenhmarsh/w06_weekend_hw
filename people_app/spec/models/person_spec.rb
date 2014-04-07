@@ -7,8 +7,14 @@ describe Person do
 	end
 
 	# Test to make sure a new Person object has an image_url, a drinks attributes, a license, a first name, a last name when it is created.
+	it{should validate_presence_of(:img_url)}
+	it{should validate_presence_of(:drinks)}
+	it{should validate_presence_of(:license)}
+	it{should validate_presence_of(:first_name)}
+	it{should validate_presence_of(:last_name)}
 
 	describe 'name' do 
 		it "should return a user's full name" do 
 		end
+	end
 end
