@@ -30,8 +30,23 @@ class Person < ActiveRecord::Base
 		else
 			return "Wait a few years"
 		end
-
-
 	end
+
+	def drive_a_car
+		#date math
+		now = Date.today.to_time
+		bday = self.birthdate.to_time
+		age = now.year - bday.year
+		if bday.month > now.month
+			age -= 1
+		elsif bday.month >= now.month && bday.day > now.day
+			age -= 1
+		end
+
+		if age < 18
+			return "Not yet youngin"
+		end
+	end
+
 
 end

@@ -56,5 +56,18 @@ describe '#have_a_drink' do
 		end
 	end
 
+#drive_a_car
+# if they are under 18 then a string "Not yet youngin" is returned
+# if they are 18 and they have a license then they can drive
+# if they are over 18 and have a license then they can drive
+# if they are over 21, have a license, and are drunk then the string "Looks like a cab for you tonight" is returned
+
+describe "#drive_a_car" do
+	it "If they are under 18 then a string 'Not yet youngin' is returned" do
+		expect(@test_minor.drive_a_car).to eq("Not yet youngin")
+	end
+
+	end
+
 
 end
