@@ -43,6 +43,10 @@ class Person < ActiveRecord::Base
 			age -= 1
 		end
 
+		if self.drinks >= 3
+			return "Looks like a cab for you tonight"
+		end
+
 		if age < 18
 			return "Not yet youngin"
 		elsif age >= 18 && self.license == true
@@ -50,6 +54,7 @@ class Person < ActiveRecord::Base
 		elsif age >= 18 && self.license == false
 			return "Sorry, no license, bro."
 		end
+
 	end
 
 

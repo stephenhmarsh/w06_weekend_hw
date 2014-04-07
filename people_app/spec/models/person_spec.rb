@@ -76,6 +76,11 @@ describe "#drive_a_car" do
 		expect(@test_person.drive_a_car).to eq("Vroom.")
 		expect(@test_no_license.drive_a_car).to eq("Sorry, no license, bro.")
 	end
+	it "# if they are over 21, have a license, and are drunk then the string 'Looks like a cab for you tonight' is returned" do
+		expect(@test_person.drive_a_car).to eq("Vroom.")
+		@test_person.drinks = 3
+		expect(@test_person.drive_a_car).to eq("Looks like a cab for you tonight")
+	end
 		
 end
 
