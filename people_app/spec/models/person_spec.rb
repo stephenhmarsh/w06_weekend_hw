@@ -5,6 +5,9 @@ describe Person do
 	before(:each) do
 		@test_person = Person.create(first_name: "Stephen", last_name: "Marsh", birthdate: "1986-08-12", drinks: 0, img_url: "none", license: true)
 		@test_minor = Person.create(first_name: "Bob", last_name: "Bobson", birthdate: "2012-08-12", drinks: 0, img_url: "none", license: true)
+		@test_no_license = Person.create(first_name: "Bob", last_name: "Bobson", birthdate: "1986-08-12", drinks: 0, img_url: "none", license: false)
+		@test_eighteen_old = Person.create(first_name: "Bob", last_name: "Bobson", birthdate: "1996-01-01", drinks: 0, img_url: "none", license: true)
+
 	end
 
 	# Test to make sure a new Person object has an image_url, a drinks attributes, a license, a first name, a last name when it is created.
@@ -66,8 +69,15 @@ describe "#drive_a_car" do
 	it "If they are under 18 then a string 'Not yet youngin' is returned" do
 		expect(@test_minor.drive_a_car).to eq("Not yet youngin")
 	end
-
+	it "If they are 18 and they have a license then they can drive" do
+		expect(@test_eighteen_old.drive_a_car).to eq("Vroom.")
 	end
+	it "If they are over 18 and have a license then they can drive" do
+		expect(@test_person.drive_a_car).to eq("Vroom.")
+		expect(@test_no_license.drive_a_car).to eq("Sorry, no license, bro.")
+	end
+		
+end
 
 
 end

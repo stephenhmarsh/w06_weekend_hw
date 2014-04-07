@@ -45,6 +45,10 @@ class Person < ActiveRecord::Base
 
 		if age < 18
 			return "Not yet youngin"
+		elsif age >= 18 && self.license == true
+			return "Vroom."
+		elsif age >= 18 && self.license == false
+			return "Sorry, no license, bro."
 		end
 	end
 
